@@ -1,0 +1,35 @@
+- name: include apps
+  include_vars: "apps.yml"
+
+- name: add nginx configuration
+  template: src={{ item.framework }}.conf.j2 dest=/etc/nginx/sites-available/{{ item.name }}.conf mode=0640
+  with_items: apps
+
+- name: enable nginx configuration
+  file: src=/etc/nginx/sites-available/{{ item.name }}.conf dest=/etc/nginx/sites-enabled/{{ item.name }}.conf state=link
+  with_items: apps
+  notify:
+    - nginx-restart
+
+- name: ensure known hosts
+  shell: touch ~/.ssh/known_hosts
+
+- name: remove github.com from known host
+  shell: ssh-keygen -R github.com
+
+- name: ensure github.com in known host
+  shell: ssh-keyscan -H github.com > ~/.ssh/known_hosts
+
+- name: remove github.com from known host
+  shell: ssh-keygen -R bitbucket.org
+
+- name: ensure github.com in known host
+  shell: ssh-keyscan -H bitbucket.org > ~/.ssh/known_hosts
+
+#- name: install app from git repo
+#  command: git clone {{ item.repository }} /var/www/{{ item.name }}
+#  with_items: apps
+#
+#- name: install app from git repo
+#  command: git checkout {{ item.version }}
+#  with_items: apps

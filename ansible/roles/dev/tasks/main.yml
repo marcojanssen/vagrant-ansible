@@ -1,0 +1,7 @@
+---
+- name: install xdebug
+  command: pecl install xdebug
+  ignore_errors: True
+  notify:
+    - php-fpm-restart
+    - nginx-restart

@@ -1,0 +1,8 @@
+- name: install php sql modules
+  apt: >
+    pkg={{ item }}
+    state=installed
+  with_items: php_sql
+  notify:
+    - php-fpm-restart
+    - nginx-restart

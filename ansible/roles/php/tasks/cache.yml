@@ -1,0 +1,17 @@
+- name: deactivate opcache
+  template: src=opcache.ini.j2 dest=/etc/php5/mods-available/opcache.ini
+  notify:
+    - nginx-restart
+    - php-fpm-restart
+
+- name: install xcache
+  apt: pkg=php5-xcache state=latest
+  notify:
+    - php-fpm-restart
+    - nginx-restart
+
+- name: configure xcache
+  template: src=xcache.ini.j2 dest=/etc/php5/mods-available/xcache.ini
+  notify:
+    - php-fpm-restart
+    - nginx-restart

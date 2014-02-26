@@ -1,0 +1,21 @@
+---
+- name: Install python curl for dotdeb
+  apt: name=python-pycurl state=latest
+
+- name: deb-dotdeb
+  apt_repository: repo='deb http://packages.dotdeb.org wheezy-php55 all' state=present
+
+- name: deb-src-dotdeb
+  apt_repository: repo='deb-src http://packages.dotdeb.org wheezy-php55 all' state=present
+
+- name: dotdeb-key
+  apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
+
+- name: apt-get update
+  apt: update_cache=yes
+
+- name: Install vim
+  apt: name=vim state=latest
+
+- name: Install git
+  apt: name=git state=latest

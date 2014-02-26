@@ -1,0 +1,8 @@
+---
+- name: Common configuration
+  hosts: all
+  remote_user: deploy
+  sudo: yes
+
+  roles:
+    - common

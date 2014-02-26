@@ -1,0 +1,8 @@
+; {{ ansible_managed }}
+; configuration for php xcache module
+; priority=20
+extension=xcache.so
+xcache.count = {{ ansible_processor_count }}
+xcache.size = 64M
+xcache.var_size = 64M
+xcache.ttl = 900

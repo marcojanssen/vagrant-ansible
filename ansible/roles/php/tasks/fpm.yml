@@ -1,0 +1,26 @@
+- name: install php-fpm
+  apt: >
+    pkg={{ item }}
+    state=installed
+  with_items: php_fpm
+  notify:
+    - nginx-restart
+    - php-fpm-restart
+
+- name: configure php
+  template: src=php.ini.j2 dest=/etc/php5/fpm/php.ini
+  notify:
+    - nginx-restart
+    - php-fpm-restart
+
+- name: configure php-fpm config
+  template: src=php-fpm.conf.j2 dest=/etc/php5/fpm/php-fpm.conf
+  notify:
+    - nginx-restart
+    - php-fpm-restart
+
+- name: configure php-fom pool (static)
+  template: src=www.conf.j2 dest=/etc/php5/fpm/pool.d/www.conf
+  notify:
+    - nginx-restart
+    - php-fpm-restart

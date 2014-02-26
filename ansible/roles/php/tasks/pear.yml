@@ -1,0 +1,16 @@
+- name: pear | install pear packages
+  apt: >
+    pkg={{ item }}
+    state=installed
+  with_items: php_pear
+
+- name: pear | update pear packages
+  command: pear upgrade
+
+- name: pear | set pear auto-discover
+  command: pear config-set auto_discover 1
+
+- name: pear | install channels
+  command: pear channel-discover {{ item }}
+  with_items: php.pear.channels
+  when: php.pear.channels is defined

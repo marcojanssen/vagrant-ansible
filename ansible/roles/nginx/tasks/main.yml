@@ -1,0 +1,32 @@
+---
+- name: deb-nginx
+  apt_repository: repo='deb http://nginx.org/packages/debian/ wheezy nginx' state=present
+
+- name: deb-src-nginx
+  apt_repository: repo='deb-src http://nginx.org/packages/debian/ wheezy nginx' state=present
+
+- name: key-nginx
+  apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
+
+- name: apt-get update
+  apt: update_cache=yes
+
+- name: install nginx
+  apt: pkg=nginx state=latest force=yes
+  notify:
+    - nginx-restart
+
+- name: set default nginx conf
+  template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf owner=root mode=0600
+  notify:
+    - nginx-restart
+
+- name: remove default server
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify:
+    - nginx-restart
+
+- name: remove default server
+  file: path=/etc/nginx/sites-available/default state=absent
+  notify:
+    - nginx-restart

@@ -1,0 +1,8 @@
+apps:
+ - name: "marcojanssen.net"
+   framework: "symfony2"
+   nginx:
+     - server_name: "marcojanssen.net dev.marcojanssen.net www.marcojanssen.net"
+       root: "/var/www/marcojanssen.net/current/web"
+       error_log: "/var/log/nginx/marcojanssen.net.error.log"
+       access_log: "/var/log/nginx/marcojanssen.net.access.log"
