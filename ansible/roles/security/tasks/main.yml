@@ -9,3 +9,9 @@
   command: ufw allow 22
   notify:
     - ufw-restart
+
+- name: Add fail2ban
+  apt: name=fail2ban state=latest
+
+- name: Restart fail2ban
+  service: name=fail2ban state=restarted
