@@ -1,4 +1,10 @@
 ---
+- name: install php cli
+  apt: pkg=php5-cli state=installed
+  notify:
+    - nginx-restart
+    - php-fpm-restart
+
 - name: configure php cli
   template: src=php.ini.j2 dest=/etc/php5/cli/php.ini
   notify:
