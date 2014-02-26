@@ -21,12 +21,17 @@
   notify:
     - nginx-restart
 
-- name: remove default server
-  file: path=/etc/nginx/sites-enabled/default state=absent
+- name: remove ssl example
+  file: path=/etc/nginx/conf.d/example_ssl.conf state=absent
   notify:
     - nginx-restart
 
-- name: remove default server
-  file: path=/etc/nginx/sites-available/default state=absent
+- name: Allow incoming http connections
+  command: ufw allow 80
   notify:
-    - nginx-restart
+    - ufw-restart
+
+- name: Allow incoming https connections
+  command: ufw allow 443
+  notify:
+    - ufw-restart
