@@ -5,7 +5,7 @@
 - name: Upgrade all safe packages
   apt: upgrade=safe
 
-- name: Install necessities and nice-to-haves
+- name: Install common packages
   apt: pkg={{ item }} state=installed
   with_items:
     - sudo
