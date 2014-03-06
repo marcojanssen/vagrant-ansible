@@ -1,6 +1,24 @@
 ---
-- name: Install python curl for dotdeb
-  apt: name=python-pycurl state=latest
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Upgrade all safe packages
+  apt: upgrade=safe
+
+- name: Install necessities and nice-to-haves
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - sudo
+    - vim
+    - htop
+    - iftop
+    - iotop
+    - git
+    - ruby1.9.3
+    - build-essential
+    - debian-goodies
+    - python-software-properties
+    - python-pycurl
 
 - name: deb-dotdeb
   apt_repository: repo='deb http://packages.dotdeb.org wheezy-php55 all' state=present
@@ -11,11 +29,5 @@
 - name: dotdeb-key
   apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
 
-- name: apt-get update
+- name: Update apt cache
   apt: update_cache=yes
-
-- name: Install vim
-  apt: name=vim state=latest
-
-- name: Install git
-  apt: name=git state=latest
