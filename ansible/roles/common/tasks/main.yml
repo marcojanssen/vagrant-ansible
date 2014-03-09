@@ -1,8 +1,8 @@
 ---
-- name: Update apt cache
+- name: apt cache
   apt: update_cache=yes
 
-- name: Upgrade all safe packages
+- name: apt upgrade
   apt: upgrade=safe
 
 - name: Install common packages
@@ -29,8 +29,9 @@
 - name: dotdeb-key
   apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
 
-- name: Update apt cache
+- name: apt cache
   apt: update_cache=yes
 
 - include: security.yml
 - include: ufw.yml
+- include: ssh.yml

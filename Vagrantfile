@@ -10,6 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network :private_network, ip: "192.168.2.200"
 
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'" # avoids 'stdin: is not a tty' error.
+
   config.vm.provider :virtualbox do |v|
     v.customize ["modifyvm", :id, '--chipset', 'ich9'] # solves kernel panic issue on some host machines
     v.customize ["modifyvm", :id, "--name", "localdev-ansible"]
