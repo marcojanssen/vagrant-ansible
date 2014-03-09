@@ -35,3 +35,4 @@
 - include: security.yml
 - include: ufw.yml
 - include: ssh.yml
+- include: users.yml

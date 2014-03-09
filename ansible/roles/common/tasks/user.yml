@@ -1,0 +1,3 @@
+---
+- name: user bashrc
+  copy: src=/vagrant/files/dot/.bashrc dest={{ homedir }}/.bashrc owner={{ user }} group={{ user }}
