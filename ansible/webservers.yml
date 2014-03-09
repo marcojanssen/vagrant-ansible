@@ -6,7 +6,6 @@
 
   roles:
     - common
-    - security
     - nginx
     - mysql
     - php

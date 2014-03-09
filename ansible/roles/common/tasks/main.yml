@@ -6,7 +6,7 @@
   apt: upgrade=safe
 
 - name: Install common packages
-  apt: pkg={{ item }} state=installed
+  apt: pkg={{ item }} state=latest
   with_items:
     - sudo
     - vim
@@ -31,3 +31,6 @@
 
 - name: Update apt cache
   apt: update_cache=yes
+
+- include: security.yml
+- include: ufw.yml

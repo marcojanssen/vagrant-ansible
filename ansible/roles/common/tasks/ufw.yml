@@ -1,0 +1,19 @@
+---
+- name: Installing ufw
+  apt: name=ufw state=latest
+
+- name: Configure ufw
+  command: ufw allow {{ item }}
+  with_items:
+    - 22 #ssh
+    - 80 #http
+    - 443 #https
+
+- name: Configure ufw for local development
+  command: ufw allow {{ item }}
+  with_items:
+    - 8182 #samba
+  when: inventory_hostname == "localhost"
+
+- name: Enable ufw
+  command: ufw --force enable

@@ -25,13 +25,3 @@
   file: path=/etc/nginx/conf.d/example_ssl.conf state=absent
   notify:
     - nginx-restart
-
-- name: Allow incoming http connections
-  command: ufw allow 80
-  notify:
-    - ufw-restart
-
-- name: Allow incoming https connections
-  command: ufw allow 443
-  notify:
-    - ufw-restart
