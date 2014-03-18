@@ -5,8 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian-wheezy72-x64-vbox43"
-  config.vm.box_url = "http://box.puphpet.com/debian-wheezy72-x64-vbox43.box"
+  config.vm.box = "ffuenf-debian-7.4.0-amd64"
+  config.vm.box_url = "https://s3-eu-west-1.amazonaws.com/ffuenf-vagrant-boxes/debian/debian-7.4.0-amd64_virtualbox.box"
 
   config.vm.network :private_network, ip: "192.168.2.200"
 
