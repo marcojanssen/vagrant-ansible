@@ -1,13 +1,4 @@
 ---
-- name: deb-nginx
-  apt_repository: repo='deb http://nginx.org/packages/debian/ wheezy nginx' state=present
-
-- name: deb-src-nginx
-  apt_repository: repo='deb-src http://nginx.org/packages/debian/ wheezy nginx' state=present
-
-- name: key-nginx
-  apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
-
 - name: install nginx
   apt: pkg=nginx state=installed force=yes
   notify:
