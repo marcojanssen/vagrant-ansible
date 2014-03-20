@@ -1,0 +1,3 @@
+nginx:
+  vhost:
+  - "vhost.net.conf"

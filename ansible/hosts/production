@@ -1,4 +1,4 @@
 # file: production
 
-[webservers]
+[webserver]
 marcojanssen.net

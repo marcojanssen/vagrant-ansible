@@ -1,8 +1,10 @@
 ---
-- name: Configure webserver
-  hosts: webservers
+- name: Webserver
+  hosts: webserver
   remote_user: deploy
   sudo: yes
+  vars_files:
+    - [ '../config/config.yml' ]
 
   roles:
     - common

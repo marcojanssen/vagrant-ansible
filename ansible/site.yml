@@ -1,2 +1,2 @@
 ---
-- include: webservers.yml
+- include: webserver.yml
