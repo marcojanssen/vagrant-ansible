@@ -1,12 +1,18 @@
 ---
+- name: deb-dotdeb
+  apt_repository: repo='deb http://packages.dotdeb.org wheezy-php55 all' state=present
+
+- name: deb-src-dotdeb
+  apt_repository: repo='deb-src http://packages.dotdeb.org wheezy-php55 all' state=present
+
+- name: dotdeb-key
+  apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
+
 - name: apt cache
   apt: update_cache=yes
 
-- name: apt upgrade
-  apt: upgrade=safe
-
 - name: Install common packages
-  apt: pkg={{ item }} state=latest
+  apt: pkg={{ item }} state=installed
   with_items:
     - sudo
     - vim
@@ -19,18 +25,6 @@
     - debian-goodies
     - python-software-properties
     - python-pycurl
-
-- name: deb-dotdeb
-  apt_repository: repo='deb http://packages.dotdeb.org wheezy-php55 all' state=present
-
-- name: deb-src-dotdeb
-  apt_repository: repo='deb-src http://packages.dotdeb.org wheezy-php55 all' state=present
-
-- name: dotdeb-key
-  apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
-
-- name: apt cache
-  apt: update_cache=yes
 
 - include: security.yml
 - include: ufw.yml
