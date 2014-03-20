@@ -8,9 +8,6 @@
 - name: key-nginx
   apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
 
-- name: apt-get update
-  apt: update_cache=yes
-
 - name: install nginx
   apt: pkg=nginx state=installed force=yes
   notify:
