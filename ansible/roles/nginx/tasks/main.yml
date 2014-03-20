@@ -25,3 +25,5 @@
   file: path=/etc/nginx/conf.d/example_ssl.conf state=absent
   notify:
     - nginx-restart
+
+- include: vhost.yml

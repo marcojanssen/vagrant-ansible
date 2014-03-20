@@ -1,3 +1,5 @@
 - name: nginx vhost
-  template: src={{ item }}.conf.j2 dest=/etc/nginx/conf.d/{{ item }}.conf mode=0640
+  template: src=../files/vhost/{{ item.template }} dest=/etc/nginx/conf.d/{{ item.name }}.conf mode=0640
   with_items: nginx.vhost
+  notify:
+    - nginx-restart

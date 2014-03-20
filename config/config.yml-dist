@@ -1,3 +1,4 @@
 nginx:
   vhost:
-  - "vhost.net.conf"
+  - name: "example.com"
+    template: "example.com.conf"
