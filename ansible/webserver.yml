@@ -11,6 +11,5 @@
     - nginx
     - mysql
     - php
-    - apps
     - {role: dev, when: inventory_hostname == "localhost"}
     - {role: samba, when: inventory_hostname == "localhost"}
