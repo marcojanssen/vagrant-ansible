@@ -5,7 +5,6 @@
 - include: fpm.yml
 - include: cli.yml
 - include: cache.yml
-- include: pear.yml
 - include: composer.yml
 - include: sql.yml
 

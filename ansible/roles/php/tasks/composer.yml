@@ -1,3 +1,12 @@
 ---
+- name: Check composer
+  stat: path=/usr/local/bin/composer
+  register: composer_exists
+
 - name: Install composer
   shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  when: composer_exists.stat.exists == false
+
+- name: Update composer
+  shell: composer self-update
+  when: composer_exists.stat.exists
