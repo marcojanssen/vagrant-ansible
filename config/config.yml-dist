@@ -1,7 +1,7 @@
 config:
   vhost:
   - name: "example.com"
-    template: "example.com..conf.j2"
+    template: "example.com.conf.j2"
   apps:
   - name: "example.com"
     path: "/var/www/example.com"
