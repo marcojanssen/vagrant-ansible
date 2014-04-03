@@ -1,0 +1,15 @@
+---
+- name: Assetic dump
+  shell: cd {{item.path}}/releases/{{deploy_timestamp}} && php app/console assetic:dump --env=prod
+  with_items: config.apps
+  when: item.framework == "symfony2"
+
+- name: Assets install
+  shell: cd {{item.path}}/releases/{{deploy_timestamp}} && php app/console assets:install --env=prod
+  with_items: config.apps
+  when: item.framework == "symfony2"
+
+- name: Warmup cache
+  shell: cd {{item.path}}/releases/{{deploy_timestamp}} && php app/console cache:warmup --env=prod
+  with_items: config.apps
+  when: item.framework == "symfony2"

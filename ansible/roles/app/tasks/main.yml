@@ -22,3 +22,6 @@
   notify:
     - nginx-restart
     - php-fpm-restart
+
+- include: symfony2.yml
+
