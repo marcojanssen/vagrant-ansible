@@ -1,0 +1,24 @@
+---
+- name: Create the release directory
+  file: state=directory path={{item.path}}/releases/{{deploy_timestamp}}
+  with_items: config.apps
+
+- name: Create the shared directory
+  file: state=directory path={{item.path}}/shared
+  with_items: config.apps
+
+- name: Checkout app
+  git: repo={{item.repository}} dest={{item.path}}/releases/{{deploy_timestamp}} version={{item.branch}}
+  with_items: config.apps
+
+- name: Run composer
+  shell: cd {{item.path}}/releases/{{deploy_timestamp}} && composer install --no-dev --optimize-autoloader --prefer-dist
+  with_items: config.apps
+  when: item.composer == "y"
+
+- name: Create symlink
+  file: state=link src={{item.path}}/releases/{{deploy_timestamp}} path={{item.path}}/current
+  with_items: config.apps
+  notify:
+    - nginx-restart
+    - php-fpm-restart
