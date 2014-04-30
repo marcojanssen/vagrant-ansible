@@ -1,0 +1,13 @@
+- name: adminer checkout
+  git: repo=https://github.com/vrana/adminer.git
+       dest=/var/www/adminer
+       version=v4.1.0
+       accept_hostkey=true
+
+- name: adminer compile
+  command: php compile.php chdir=/var/www/adminer creates=/var/www/adminer/adminer-4.1.0.php
+
+- name: adminer vhost
+  template: src=adminer.localhost.com.conf.j2 dest=/etc/nginx/conf.d/adminer.localhost.com.conf mode=0640
+  notify:
+    - nginx-restart
