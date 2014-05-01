@@ -12,7 +12,9 @@
 - name: ufw configure samba
   command: ufw allow {{ item }}
   with_items:
-    - 8182 #samba
+    - 139
+    - 445
+    - 8182
   when: inventory_hostname == "localhost"
 
 - name: ufw enable
