@@ -12,6 +12,8 @@
 - name: ufw configure samba
   command: ufw allow {{ item }}
   with_items:
+    - 137
+    - 138
     - 139
     - 445
     - 8182
