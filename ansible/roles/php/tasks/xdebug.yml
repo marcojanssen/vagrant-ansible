@@ -1,0 +1,12 @@
+---
+- name: install xdebug
+  apt: pkg=php5-xdebug state=installed
+  notify:
+    - nginx-restart
+    - php-fpm-restart
+
+- name: configure xdebug
+  template: src=xdebug.ini.j2 dest=/etc/php5/mods-available/xdebug.ini
+  notify:
+    - php-fpm-restart
+    - nginx-restart

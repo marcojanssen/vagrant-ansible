@@ -15,4 +15,4 @@
     - nginx-restart
     - php-fpm-restart
 
-- {include: dev.yml, when: inventory_hostname == "localhost"}
+- {include: xdebug.yml, when: inventory_hostname == "localhost"}

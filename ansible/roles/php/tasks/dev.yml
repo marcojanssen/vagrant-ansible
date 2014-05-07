@@ -1,6 +1,0 @@
----
-- name: install xdebug
-  apt: pkg=php5-xdebug state=installed
-  notify:
-    - nginx-restart
-    - php-fpm-restart
