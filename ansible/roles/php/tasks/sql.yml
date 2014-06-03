@@ -1,8 +1,9 @@
-- name: install php sql modules
-  apt: >
-    pkg={{ item }}
-    state=installed
-  with_items: php_sql
+- name: install php mysql modules
+  apt: pkg=php5-mysql state=installed
   notify:
     - php-fpm-restart
     - nginx-restart
+
+- name: install php5 sqlite3 driver
+  apt: pkg=php5-sqlite state=installed
+  when: inventory_hostname == "localhost"

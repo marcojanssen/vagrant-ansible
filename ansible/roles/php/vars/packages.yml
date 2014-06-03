@@ -7,9 +7,6 @@ php_pear:
 php_fpm:
   - php5-fpm
 
-php_sql:
-  - php5-mysql
-
 php_common:
   - php5-common
   - php5-curl
