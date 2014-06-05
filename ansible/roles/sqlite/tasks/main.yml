@@ -1,2 +1,5 @@
 - name: install sqlite3
   apt: pkg=sqlite3 state=installed
+
+- name: install libsqlite3-dev
+  apt: pkg=libsqlite3-dev state=installed

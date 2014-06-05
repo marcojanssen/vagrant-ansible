@@ -19,5 +19,11 @@
     - 8182
   when: inventory_hostname == "localhost"
 
+- name: ufw configure mailcatcher
+  command: ufw allow {{ item }}
+  with_items:
+    - 1080
+  when: inventory_hostname == "localhost"
+
 - name: ufw enable
   command: ufw --force enable
