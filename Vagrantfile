@@ -5,8 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian-7.4.0-amd64"
-  config.vm.box_url = "https://vagrantcloud.com/chef/debian-7.4/version/1/provider/virtualbox.box"
+  config.vm.box = "ubuntu-14.04-amd64"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
   config.vm.network :private_network, ip: "192.168.2.200"
 
@@ -24,7 +24,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #666 otherwise ansible fails on the host files
   config.vm.synced_folder '.', '/vagrant', mount_options: ["dmode=666","fmode=666"]
 
-  config.vm.provision :shell, :path => "shell/init.sh"
   config.vm.provision :shell, :path => "shell/ansible-install.sh"
   config.vm.provision :shell, :path => "shell/ansible-run.sh"
 end
