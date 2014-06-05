@@ -1,0 +1,5 @@
+- name: install mailcatcher
+  gem: name=mailcatcher state=latest
+
+- name: start mailcatcher
+  command: mailcatcher --ip=0.0.0.0
