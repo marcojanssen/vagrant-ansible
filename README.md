@@ -2,15 +2,24 @@
 
 ----------
 
-A out of the box solution for a LAMP setup, Debian Wheezy 7.2 is installed with the following packages:
+A out of the box solution for a LEMP setup, Ubuntu 14.04 is installed with the following packages:
 
+- Adminer
 - Nginx
 - Composer
 - Git
 - MySQL
-- PHP
+- PHP 5.5
+- SQLite
+- Samba
 
 ## Requirements ##
 
-- Vagrant 1.5.1
-- Virtualbox 4.3.8
+- Vagrant 1.6.*
+- Virtualbox 4.3.*
+
+## Notes ##
+
+By default the password authentication is disabled for ssh, use the default vagrant ssh key @ files/ssh/vagrant
+Also UFW is enabled which only allows certain ports opened
+
