@@ -1,0 +1,6 @@
+---
+- name: install nodejs
+  apt: pkg=nodejs state=latest
+
+- name: install npm
+  apt: pkg=npm state=latest

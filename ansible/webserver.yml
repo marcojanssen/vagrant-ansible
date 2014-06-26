@@ -13,6 +13,7 @@
     - nginx
     - mysql
     - php
+    - nodejs
     - {role: sqlite, when: inventory_hostname == "localhost"}
     - {role: samba, when: inventory_hostname == "localhost"}
     - {role: adminer, when: inventory_hostname == "localhost"}
