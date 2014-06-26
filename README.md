@@ -21,5 +21,5 @@ A out of the box solution for a LEMP setup, Ubuntu 14.04 is installed with the f
 ## Notes ##
 
 By default the password authentication is disabled for ssh, use the default vagrant ssh key @ files/ssh/vagrant
-Also UFW is enabled which only allows certain ports opened
+Also UFW is enabled which only allows certain ports
 
