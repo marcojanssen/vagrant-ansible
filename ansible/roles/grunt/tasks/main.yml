@@ -1,0 +1,3 @@
+---
+- name: install grunt
+  command: npm install -g grunt-cli

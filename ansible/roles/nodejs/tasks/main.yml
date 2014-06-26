@@ -2,5 +2,8 @@
 - name: install nodejs
   apt: pkg=nodejs state=latest
 
+- name: fix misnaming
+  command: ln -s /usr/bin/nodejs /usr/bin/node
+
 - name: install npm
   apt: pkg=npm state=latest
