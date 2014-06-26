@@ -1,2 +1,0 @@
-- name: install mailcatcher
-  gem: name=mailcatcher state=latest
