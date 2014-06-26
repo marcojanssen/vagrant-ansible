@@ -1,22 +1,4 @@
 ---
-- name: deb-dotdeb
-  apt_repository: repo='deb http://packages.dotdeb.org wheezy-php55 all' state=present
-
-- name: deb-src-dotdeb
-  apt_repository: repo='deb-src http://packages.dotdeb.org wheezy-php55 all' state=present
-
-- name: dotdeb-key
-  apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
-
-- name: deb-nginx
-  apt_repository: repo='deb http://nginx.org/packages/debian/ wheezy nginx' state=present
-
-- name: deb-src-nginx
-  apt_repository: repo='deb-src http://nginx.org/packages/debian/ wheezy nginx' state=present
-
-- name: key-nginx
-  apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
-
 - name: apt cache
   apt: update_cache=yes
 
@@ -31,7 +13,6 @@
     - git
     - ruby1.9.3
     - build-essential
-    - debian-goodies
     - python-software-properties
     - python-pycurl
 
