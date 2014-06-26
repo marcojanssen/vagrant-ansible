@@ -1,7 +1,7 @@
 - name: pear | install pear packages
   apt: >
     pkg={{ item }}
-    state=installed
+    state=latest
   with_items: php_pear
 
 - name: pear | update pear packages

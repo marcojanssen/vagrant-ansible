@@ -1,9 +1,9 @@
 - name: install php mysql modules
-  apt: pkg=php5-mysql state=installed
+  apt: pkg=php5-mysql state=latest
   notify:
     - php-fpm-restart
     - nginx-restart
 
 - name: install php5 sqlite3 driver
-  apt: pkg=php5-sqlite state=installed
+  apt: pkg=php5-sqlite state=latest
   when: inventory_hostname == "localhost"

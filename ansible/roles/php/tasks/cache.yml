@@ -5,7 +5,7 @@
     - php-fpm-restart
 
 - name: install xcache
-  apt: pkg=php5-xcache state=installed
+  apt: pkg=php5-xcache state=latest
   notify:
     - php-fpm-restart
     - nginx-restart

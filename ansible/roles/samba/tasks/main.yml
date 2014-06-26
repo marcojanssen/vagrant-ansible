@@ -1,6 +1,6 @@
 ---
 - name: install samba
-  apt: pkg=samba state=installed
+  apt: pkg=samba state=latest
   notify:
     - samba-restart
 

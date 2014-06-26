@@ -1,6 +1,6 @@
 ---
 - name: install nginx
-  apt: pkg=nginx state=installed force=yes
+  apt: pkg=nginx state=latest
   notify:
     - nginx-restart
 

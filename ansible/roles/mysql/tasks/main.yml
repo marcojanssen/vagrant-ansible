@@ -1,11 +1,11 @@
 - name: install mysql-server
-  apt: pkg=mysql-server state=installed
+  apt: pkg=mysql-server state=latest
 
 - name: install mysql-client
-  apt: pkg=mysql-client state=installed
+  apt: pkg=mysql-client state=latest
 
 - name: install python-mysqldb
-  apt: pkg=python-mysqldb  state=installed
+  apt: pkg=python-mysqldb  state=latest
 
 - name: Start the MySQL service
   action: service name=mysql state=started

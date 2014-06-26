@@ -1,7 +1,7 @@
 - name: install php-fpm
   apt: >
     pkg={{ item }}
-    state=installed
+    state=latest
   with_items: php_fpm
   notify:
     - nginx-restart

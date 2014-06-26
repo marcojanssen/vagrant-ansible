@@ -1,6 +1,6 @@
 ---
 - name: ufw install
-  apt: name=ufw state=installed
+  apt: name=ufw state=latest
 
 - name: ufw configure
   command: ufw allow {{ item }}

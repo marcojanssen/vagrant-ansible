@@ -9,7 +9,7 @@
 - include: sql.yml
 
 - name: install php common modules
-  apt: pkg={{ item }} state=installed
+  apt: pkg={{ item }} state=latest
   with_items: php_common
   notify:
     - nginx-restart

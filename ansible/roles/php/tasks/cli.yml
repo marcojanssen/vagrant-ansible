@@ -1,6 +1,6 @@
 ---
 - name: install php cli
-  apt: pkg=php5-cli state=installed
+  apt: pkg=php5-cli state=latest
   notify:
     - nginx-restart
     - php-fpm-restart

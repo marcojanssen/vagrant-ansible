@@ -3,7 +3,7 @@
   apt: update_cache=yes
 
 - name: Install common packages
-  apt: pkg={{ item }} state=installed
+  apt: pkg={{ item }} state=latest
   with_items:
     - sudo
     - vim
