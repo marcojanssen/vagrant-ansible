@@ -16,6 +16,7 @@
     - nodejs
     - bower
     - grunt
+    - {role: capifony, when: inventory_hostname == "localhost"}
     - {role: sqlite, when: inventory_hostname == "localhost"}
     - {role: samba, when: inventory_hostname == "localhost"}
     - {role: adminer, when: inventory_hostname == "localhost"}
