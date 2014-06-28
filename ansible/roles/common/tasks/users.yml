@@ -1,5 +1,0 @@
----
-- include: user.yml user=root homedir=/root
-
-- include: user.yml user=vagrant homedir=/home/vagrant
-  when: inventory_hostname == "localhost"

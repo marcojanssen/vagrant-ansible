@@ -1,3 +1,7 @@
 ---
-- name: user bashrc
-  copy: src=/vagrant/files/dot/.bashrc dest={{ homedir }}/.bashrc owner={{ user }} group={{ user }}
+- name: user root
+  copy: src=/vagrant/files/dot/.bashrc dest=/root/.bashrc owner=root group=root
+
+- name: user vagrant
+  copy: src=/vagrant/files/dot/.bashrc dest=/home/vagrant/.bashrc owner=vagrant group=vagrant
+  when: inventory_hostname == "localhost"
