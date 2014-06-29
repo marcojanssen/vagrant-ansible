@@ -13,7 +13,7 @@
   action: service name=mysql state=started
 
 - name: update mysql root password for all root accounts
-  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password.stdout }}
   with_items:
     - "{{ ansible_hostname }}"
     - "{{ ansible_eth0.ipv4.address }}"
