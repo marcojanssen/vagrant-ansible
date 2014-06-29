@@ -1,0 +1,3 @@
+- name: mysql database
+  mysql_db: name={{ item.value.database }} state=present
+  with_dict: config.mysql

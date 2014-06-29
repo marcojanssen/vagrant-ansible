@@ -1,0 +1,3 @@
+- name: mysql users
+  mysql_user: name={{ item.value.user }} password={{ item.value.password }} priv={{ item.value.database }}.*:INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX state=present
+  with_dict: config.mysql
