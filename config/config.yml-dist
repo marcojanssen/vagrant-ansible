@@ -8,3 +8,4 @@ config:
       user: "example"
       password: "mypassword"
       database: "example"
+      privileges: "SELECT,INSERT,UPDATE,DELETE"
