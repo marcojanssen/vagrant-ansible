@@ -1,9 +1,0 @@
-- name: generate mysql root password
-  command: openssl rand -base64 32
-  when: inventory_hostname != "localhost"
-  register: mysql_root_password
-
-- name: set default root password for localhost
-  set_fact:
-    mysql_root_password: "root"
-  when: inventory_hostname == "localhost"

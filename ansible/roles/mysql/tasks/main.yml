@@ -4,6 +4,8 @@
 - name: install mysql-client
   apt: pkg=mysql-client state=latest
 
+- include: mysql.root.password.yml
+
 - name: install python-mysqldb
   apt: pkg=python-mysqldb  state=latest
 

@@ -8,7 +8,6 @@
 
   roles:
     - common
-    - password
     - nginx
     - mysql
     - php
