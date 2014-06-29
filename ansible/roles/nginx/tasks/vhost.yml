@@ -1,5 +1,5 @@
 - name: nginx vhost
-  template: src=../files/vhost/{{ item.template }} dest=/etc/nginx/conf.d/{{ item.name }}.conf mode=0640
-  with_items: config.vhost
+  template: src=../files/vhost/{{ item.value.template }} dest=/etc/nginx/conf.d/{{ item.value.name }}.conf mode=0640
+  with_dict: config.vhost
   notify:
     - nginx-restart
